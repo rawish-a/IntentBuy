@@ -1,0 +1,69 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# VS Code settings
+.vscode/
+
+# Mac OS files
+.DS_Store
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy, Pyre, etc.
+.mypy_cache/
+.pyre/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# Databases
+*.sqlite3
+*.db
+
+# FastAPI static/cache folders (if any)
+staticfiles/
+media/
+
+# Python build artifacts
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+
+# Wheels
+*.whl
+
+# Jupyter Notebook checkpoints (if used)
+.ipynb_checkpoints/
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# Node (if you're using React or frontend assets)
+node_modules/
