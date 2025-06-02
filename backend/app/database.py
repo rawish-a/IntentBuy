@@ -1,5 +1,8 @@
+from sqlalchemy.ext.asyncio import create_async_engine
 from databases import Database
+from app.config import settings
 
-DATABASE_URL = "postgresql+asyncpg://postgres:password@localhost:5432/intentbuy_db"
+DATABASE_URL = settings.database_url
 
 database = Database(DATABASE_URL)
+engine = create_async_engine(DATABASE_URL)
