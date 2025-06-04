@@ -6,10 +6,6 @@ app = FastAPI()
 
 
 @app.get("/")
-async def read_root():
-    return {"message": "Testing", "db_url": settings.database_url}
-
-@app.get("/")
 async def root():
     return {"message": "Testing"}
 

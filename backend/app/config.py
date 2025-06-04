@@ -7,5 +7,6 @@ class Settings(BaseSettings):
     secret_key: str
 
     model_config = SettingsConfigDict(env_file=str(Path(__file__).resolve().parent.parent / ".env"))
+    #Loads values from the .env file into the settings instance.
 
 settings = Settings()
