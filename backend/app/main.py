@@ -1,24 +1,22 @@
 from fastapi import FastAPI
-from .database import database
-from .config import settings
+from app.routers import auth as auth_router  # import your auth routes
+from app.database import get_async_session
+from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi import Depends
+from sqlalchemy import text
 
 app = FastAPI()
 
-
 @app.get("/")
 async def root():
-    return {"message": "Testing"}
+    return {"message": "IntentBuy backend is running"}
 
+# Optional: Test DB connection using async SQLAlchemy session
 @app.get("/users/")
-async def get_users():
-    query = "SELECT * FROM users;"
-    results = await database.fetch_all(query)
-    return results
+async def get_users(db: AsyncSession = Depends(get_async_session)):
+    result = await db.execute(text("SELECT * FROM users"))
+    users = result.mappings().all()  # returns list of dict-like rows
+    return users
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+# Register auth routes
+app.include_router(auth_router.router)
