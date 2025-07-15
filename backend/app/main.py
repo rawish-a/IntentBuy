@@ -4,8 +4,13 @@ from app.database import get_async_session
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 from sqlalchemy import text
+from app.routers import posts as posts_router
 
 app = FastAPI()
+
+app.include_router(posts_router.router)
+
+
 
 @app.get("/")
 async def root():
